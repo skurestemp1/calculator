@@ -30,7 +30,7 @@ public class CalculatorTest {
 
     @Test
     public void testDiv() {
-        assertEquals(0, calculator.div(10, 2));
+        assertEquals(5, calculator.div(10, 2));
     }
 
 //    @Test

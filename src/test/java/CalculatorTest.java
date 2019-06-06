@@ -6,6 +6,8 @@ import static junit.framework.TestCase.assertEquals;
 
 public class CalculatorTest {
 
+    //c
+
     private Calculator calculator;
 
     @Before

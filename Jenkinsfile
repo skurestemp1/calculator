@@ -77,7 +77,10 @@ pipeline {
       }
       stage('trigger release orchestration') {
          steps {
-           sh 'echo trigger release orchestration'
+	    container('maven') {
+	        sh 'echo trigger release orchestration'
+		curl --help
+	    }
          }
       }
    }

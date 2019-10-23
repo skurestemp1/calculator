@@ -77,10 +77,7 @@ pipeline {
       }
       stage('trigger release orchestration') {
          steps {
-	    container('curl') {
-	        sh 'echo trigger release orchestration'
-		//sh 'curl -X POST "https://35.210.94.129/rest/v1.0/pipelines?pipelineName=calculator%20pipeline&projectName=Traditional" -H "accept: application/json" -d "{\"actualParameter\":[{\"actualParameterName\":\"artefactversion\",\"value\":\"${env.BUILD_ID}\"}]}"'
-	    }
+            cloudBeesFlowCallRestApi body: '{ "parameters": { "actualParameter": [ { "actualParameterName": "artefactversion", "value": "${BUILD_NUMBER}" }] } } ', configuration: 'flow', httpMethod: 'POST', urlPath: '/pipelines?pipelineName=calculator%20pipeline&projectName=Traditional'
          }
       }
    }

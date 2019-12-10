@@ -75,10 +75,12 @@ pipeline {
                 }
             }
       }
-      stage('trigger release orchestration') {
-         steps {
-            cloudBeesFlowCallRestApi body: '{ "parameters": { "actualParameter": [ { "actualParameterName": "artefactversion", "value": "${BUILD_NUMBER}" }] } } ', configuration: 'flow', httpMethod: 'POST', urlPath: '/pipelines?pipelineName=calculator%20pipeline&projectName=Traditional'
-         }
+      stage('trigger shared agent') {
+	 agent { label 'shared-agent' }
+             steps {
+                sh 'echo triggered on shared agent'
+             }
+          }
       }
    }
 }

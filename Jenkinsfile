@@ -77,10 +77,9 @@ pipeline {
       }
       stage('trigger shared agent') {
 	 agent { label 'shared-agent' }
-             steps {
-                sh 'echo triggered on shared agent'
-             }
-          }
+         steps {
+            sh 'echo triggered on shared agent'
+         }
       }
    }
 }
